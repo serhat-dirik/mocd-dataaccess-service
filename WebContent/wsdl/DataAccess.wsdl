@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetTransactionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransactionInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionInfoResult" type="tns:ArrayOfDataTable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataTable" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <!--s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" /-->
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Authentication" type="tns:Authentication" />
+      <s:complexType name="Authentication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTransactionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransactionInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransactionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionInfoAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:portType name="DataAccess_TransactionStatusSoap">
+    <wsdl:operation name="GetTransactionInfo">
+      <wsdl:input message="tns:GetTransactionInfoSoapIn" />
+      <wsdl:output message="tns:GetTransactionInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataAccess_TransactionStatusSoap" type="tns:DataAccess_TransactionStatusSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTransactionInfo">
+      <soap:operation soapAction="http://tempuri.org/GetTransactionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTransactionInfoAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataAccess_TransactionStatusSoap12" type="tns:DataAccess_TransactionStatusSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTransactionInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetTransactionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTransactionInfoAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataAccess_TransactionStatus">
+    <wsdl:port name="DataAccess_TransactionStatusSoap" binding="tns:DataAccess_TransactionStatusSoap">
+      <soap:address location="https://www.ajmanded.ae/GenInfo/_WebServices/DataAccess_TransactionStatus.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataAccess_TransactionStatusSoap12" binding="tns:DataAccess_TransactionStatusSoap12">
+      <soap12:address location="https://www.ajmanded.ae/GenInfo/_WebServices/DataAccess_TransactionStatus.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

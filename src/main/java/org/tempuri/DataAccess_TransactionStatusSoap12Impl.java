@@ -34,7 +34,7 @@ import javax.xml.ws.handler.MessageContext;
                       serviceName = "DataAccess_TransactionStatus",
                       portName = "DataAccess_TransactionStatusSoap12",
                       targetNamespace = "http://tempuri.org/",
-                      wsdlLocation = "file:/Users/serhat/RedHat/accountsV2/DBX-MODC/poc/mocd-dataaccess-service/WebContent/wsdl/DataAccess.wsdl",
+                      wsdlLocation = "META-INF/wsdl/DataAccess.wsdl",
                       endpointInterface = "org.tempuri.DataAccessTransactionStatusSoap")
                       
 @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", date = "2019-02-21T01:01:07.273+04:00", comments = "Apache CXF 3.1.7")

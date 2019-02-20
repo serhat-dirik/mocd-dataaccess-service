@@ -16,7 +16,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "DataAccess_TransactionStatus", 
-                  wsdlLocation = "file:/Users/serhat/RedHat/accountsV2/DBX-MODC/poc/mocd-dataaccess-service/WebContent/wsdl/DataAccess.wsdl",
+                  wsdlLocation = "META-INF/wsdl/DataAccess.wsdl",
                   targetNamespace = "http://tempuri.org/") 
 @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", date = "2019-02-21T01:01:07.283+04:00", comments = "Apache CXF 3.1.7")
 public class DataAccessTransactionStatus extends Service {

@@ -81,10 +81,10 @@
 								<phase>generate-sources</phase>
 								<configuration>
 									<encoding>UTF-8</encoding>
-									<sourceRoot>${basedir}/target/generated-src/main/java/</sourceRoot>
+									<sourceRoot>${basedir}/src/main/java/</sourceRoot>
 									<wsdlOptions>
 										<wsdlOption>
-											<wsdl>${basedir}/src/resources/META-INF/wsdl/DataAccess.wsdl</wsdl>
+											<wsdl>${basedir}/WebContent/wsdl/DataAccess.wsdl</wsdl>
 											<!--<wsdlLocation>classpath:wsdl/ShapeCalcWebService.wsdl</wsdlLocation> -->
 											<extraargs>
 												<extraarg>-impl</extraarg>

@@ -70,7 +70,7 @@
 				<activeByDefault>false</activeByDefault>
 			</activation>
 			<build>
-				<finalName>ROOT</finalName>
+				<finalName>ws</finalName>
 			</build>
 		</profile>
 		<profile>

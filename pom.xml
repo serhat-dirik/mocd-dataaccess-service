@@ -65,6 +65,15 @@
 		when desired, not automatically -->
 	<profiles>
 		<profile>
+			<id>openshift</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<finalName>ROOT</finalName>
+			</build>
+		</profile>
+		<profile>
 			<id>generate-sources</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
